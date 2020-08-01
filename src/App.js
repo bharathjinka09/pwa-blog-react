@@ -11,17 +11,17 @@ function App() {
     <div className="App">
       <Router>
         <Navbar bg="primary" variant="dark">
-          <Navbar.Brand><Link to='/'>Blog</Link></Navbar.Brand>
+          <Navbar.Brand><Link to='/pwa-blog-react/'>Blog</Link></Navbar.Brand>
           <Nav className="mr-auto">
-            <Nav.Link><Link to='/'>Home</Link></Nav.Link>
-            <Nav.Link><Link to='/about'>About</Link></Nav.Link>
-            <Nav.Link><Link to='/users'>Users</Link></Nav.Link>
+            <Nav.Link><Link to='/pwa-blog-react/'>Home</Link></Nav.Link>
+            <Nav.Link><Link to='/pwa-blog-react/about'>About</Link></Nav.Link>
+            <Nav.Link><Link to='/pwa-blog-react/users'>Users</Link></Nav.Link>
           </Nav>
         </Navbar>
         <Switch>
-          <Route component={About} path='/about'></Route>
-          <Route component={Users} path='/users'></Route>
-          <Route component={Home} path='/'></Route>
+          <Route exact component={About} path='/pwa-blog-react/about'></Route>
+          <Route exact component={Users} path='/pwa-blog-react/users'></Route>
+          <Route exact component={Home} path='/pwa-blog-react/'></Route>
         </Switch>
       </Router>
     </div>

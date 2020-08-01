@@ -11,7 +11,8 @@ this.addEventListener('install',(event)=>{
 				'/index.html',
 				'/',				
 				'/users',				
-				'/about'				
+				'/about',				
+				'/pwa-blog-react'				
 			])
 		})
 	)
