@@ -14,6 +14,8 @@ this.addEventListener('install',(event)=>{
 				'/about',				
 				'/pwa-blog-react/',
 				'https://bharathjinka09.github.io/pwa-blog-react/'				
+				'https://bharathjinka09.github.io/pwa-blog-react/about'				
+				'https://bharathjinka09.github.io/pwa-blog-react/users'				
 			])
 		})
 	)
