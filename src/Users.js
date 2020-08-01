@@ -4,6 +4,7 @@ import {Table} from 'react-bootstrap'
 function Users(){ 
 
 	const [users, setUsers] = useState([])
+	const [mode, setMode] = useState('online')
 
 	useEffect(() => {
 		let url = "https://jsonplaceholder.typicode.com/users"
@@ -11,13 +12,26 @@ function Users(){
 			response.json().then((result) => {
 				console.log("result",result)
 				setUsers(result)
+				localStorage.setItem("users", JSON.stringify(result))
 			})
+		}).catch(error =>{
+			let collection = localStorage.getItem("users")
+			setUsers(JSON.parse(collection))
+			setMode('offline')
 		})
 	},[])
 
 	return (
 		<div>
-		    <Table striped bordered hover>
+			<div>
+				{
+					mode==='offline'?
+					<div className='alert alert-warning' role='alert'>
+						You are offline. Please check internet connection!
+					</div>:null	
+				}
+			</div>
+		    <Table striped bordered hover responsive>
 			  <thead>
 			    <tr>
 			      <th>ID</th>
@@ -29,7 +43,7 @@ function Users(){
 			  <tbody>
 			  	{
 			  		users.map((user) => 
-			  			<tr>
+			  			<tr key={user.id}>
 					      <td>{user.id}</td>
 					      <td>{user.name}</td>
 					      <td>{user.email}</td>
