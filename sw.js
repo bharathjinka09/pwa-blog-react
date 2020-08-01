@@ -12,7 +12,8 @@ this.addEventListener('install',(event)=>{
 				'/',				
 				'/users',				
 				'/about',				
-				'/pwa-blog-react'				
+				'/pwa-blog-react/',
+				'https://bharathjinka09.github.io/pwa-blog-react/'				
 			])
 		})
 	)
@@ -21,11 +22,14 @@ this.addEventListener('install',(event)=>{
 
 // retrieves data from cache
 this.addEventListener('fetch',(event)=>{
-	event.respondWith(
-		caches.match(event.request).then((result) => {
-			if (result){
-				return result
-			}
-		})
-	)
+	if(!navigator.onLine)
+	{
+		event.respondWith(
+			caches.match(event.request).then((resp) => {
+				if (resp){
+					return resp
+				}
+			})
+		)
+	}
 })
